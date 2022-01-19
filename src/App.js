@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import Transaction from './components/Transaction';
+import TRANSACTION_DATA from './mock-data';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      {TRANSACTION_DATA.map((t, i) =>
+        <Transaction user={t.user} amount={t.amount} date={t.date} place={t.place} key={i} />
+      )}
+      <Transaction />
     </div>
   );
 }
